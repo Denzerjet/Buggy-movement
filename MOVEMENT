@@ -22,16 +22,11 @@ print("esc: exit")
 
 #hostname="google.com"
 #response=os.system("ping -c 1 " + hostname)
-p=picam.PiPan()
 t=IO.PWM(19,100)
 s=IO.PWM(26,100)
 w=pygame.key.get_pressed()[pygame.K_w]
 throttle=14
 steer=14.5
-pan=166
-tilt=122
-p.neutral_pan()
-p.neutral_tilt()
 t.start(throttle)
 s.start(steer)
 stop = False
@@ -52,19 +47,6 @@ while (True):
                         steer=11
                 elif event.key == K_d:
                         steer=18
-                elif event.key == K_UP:
-                        tilt=tilt-5
-                elif event.key == K_DOWN:
-                        tilt=tilt+5
-                elif event.key == K_LEFT:
-                        pan=pan+10
-                elif event.key == K_RIGHT:
-                        pan=pan-10
-                elif event.key == K_RETURN:
-                        p.neutral_pan()
-                        p.neutral_tilt()
-                        pan=166
-                        tilt=122
                 elif event.key == K_ESCAPE:
                         stop = True
                         t.ChangeDutyCycle(throttle)
