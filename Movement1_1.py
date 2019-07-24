@@ -47,23 +47,23 @@ while (True):
                         kit.motor2.throttle = 1.0
                 elif event.key == K_ESCAPE:
                         stop = True
-                #elif event.type == pygame.KEYUP:
-                       # if((pygame.key.get_pressed()[pygame.K_w] != 0 and pygame.key.get_pressed()[pygame.K_a] != 0) or (pygame.key.get_pressed()[pygame.K_w] !=0 and pygame.key.get_pressed()[pygame.K_d] != 0)):
-                       #         
-                       # elif((pygame.key.get_pressed()[pygame.K_s] != 0 and pygame.key.get_pressed()[pygame.K_a] != 0) or (pygame.key.get_pressed()[pygame.K_s] !=0 and pygame.key.get_pressed()[pygame.K_d] != 0)):
-                                
-                       # elif(pygame.key.get_pressed()[pygame.K_w] != 0):
-                        #        throttle=15.1
-                        #        steer=14.5
-                        #elif(pygame.key.get_pressed()[pygame.K_s] != 0):
-                        #        throttle=13.2
-                        #        steer=14.5
-                        #elif(pygame.key.get_pressed()[pygame.K_a] != 0):
-                        #        throttle=14
-                        #        steer=11
-                        #elif(pygame.key.get_pressed()[pygame.K_d] != 0):
-                         #       throttle=14
-                         #       steer=18
-                        #else:
-                          #      throttle=14
-                          #      steer=14.5*/
+        
+        elif event.type == pygame.KEYUP:
+            if pygame.key.get_pressed()[pygame.K_w] != 0:
+                kit.motor1.throttle = 0
+                kit.motor2.throttle = 0
+                
+            elif(pygame.key.get_pressed()[pygame.K_s] != 0):
+                kit.motor1.throttle = 0
+                kit.motor2.throttle = 0
+                    
+            elif(pygame.key.get_pressed()[pygame.K_a] != 0):
+                kit.motor1.throttle = 0
+                kit.motor2.throttle = 0
+                        
+            elif(pygame.key.get_pressed()[pygame.K_d] != 0):
+                kit.motor1.throttle = 0
+                kit.motor2.throttle = 0
+            else:
+                kit.motor1.throttle = 0
+                kit.motor2.throttle = 0
