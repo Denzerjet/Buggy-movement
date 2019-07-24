@@ -1,26 +1,9 @@
-import RPi.GPIO as IO
+"""Simple test for using adafruit_motorkit with a DC motor"""
 import time
-import os, sys
-import picam
-import pygame
-from pygame.locals import *
-
-pygame.init()
-screen = pygame.display.set_mode((240, 240))
-pygame.display.set_caption('Pi Car')
-
-IO.setwarnings(False)
-IO.setmode(IO.BCM)
-IO.setup(19,IO.OUT)
-IO.setup(26,IO.OUT)
-
-print("w/s: acceleration")
-print("a/d: steering")
-print("UP/DOWN: tilt")
-print("LEFT/RIGHT: pan")
-print("esc: exit")
-
-#hostname="google.com"
-#response=os.system("ping -c 1 " + hostname)
-t=IO.PWM(7,100)
-s=IO.PWM(1,100)
+from adafruit_motorkit import MotorKit
+ 
+kit = MotorKit()
+ 
+kit.motor1.throttle = 1.0
+time.sleep(0.5)
+kit.motor1.throttle = 0
